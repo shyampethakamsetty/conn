@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/navbar";
 import FooterWrapper from "@/components/layout/footer-wrapper";
+import { MobileBottomNav } from "@/components/layout/MobileBottomNav";
 import Providers from "./providers";
 import { NotificationProvider } from "@/contexts/NotificationContext";
 import { Toaster } from "sonner";
@@ -45,10 +46,11 @@ export default function RootLayout({
             <div className="flex flex-col min-h-screen relative">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent pointer-events-none" />
               <Navbar />
-              <main className="flex-grow relative z-10">
+              <main className="flex-grow relative z-10 pb-20 lg:pb-0">
                 {children}
               </main>
               <FooterWrapper />
+              <MobileBottomNav />
             </div>
             <Toaster position="top-right" />
             <HotToaster

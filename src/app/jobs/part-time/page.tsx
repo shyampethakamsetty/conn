@@ -61,8 +61,8 @@ export default function PartTimeJobsPage() {
   };
 
   return (
-    <main className="pt-28 pb-20">
-      <div className="container mx-auto px-4 md:px-6">
+    <main className="pt-20 sm:pt-24 lg:pt-28 pb-24 lg:pb-20">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
         {/* Page Header */}
         <div className="text-center mb-12">
           <motion.h1 

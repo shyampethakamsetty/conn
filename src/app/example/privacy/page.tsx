@@ -84,7 +84,7 @@ export default function PrivacyPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="pt-28 pb-20 bg-gradient-to-br from-primary/5 via-background to-primary/5">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -111,7 +111,7 @@ export default function PrivacyPage() {
 
       {/* Overview Section */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -129,7 +129,7 @@ export default function PrivacyPage() {
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 By using ConnectFlow, you agree to the collection and use of information in accordance with this policy. 
-                If you have any questions about this Privacy Policy, please contact us at privacy@connectflow.co.in.
+                If you have any questions about this Privacy Policy, please contact us at info@therobustrix.com.
               </p>
             </motion.div>
           </div>
@@ -138,7 +138,7 @@ export default function PrivacyPage() {
 
       {/* Main Content */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             {sections.map((section, index) => (
               <motion.div
@@ -167,7 +167,7 @@ export default function PrivacyPage() {
 
       {/* Data Retention */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -216,7 +216,7 @@ export default function PrivacyPage() {
 
       {/* International Transfers */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -251,7 +251,7 @@ export default function PrivacyPage() {
 
       {/* Children's Privacy */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -276,7 +276,7 @@ export default function PrivacyPage() {
 
       {/* Changes to Policy */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -315,7 +315,7 @@ export default function PrivacyPage() {
 
       {/* Contact Information */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -334,21 +334,20 @@ export default function PrivacyPage() {
                   <Mail className="w-5 h-5 text-primary" />
                   <div>
                     <p className="font-medium text-foreground">Email</p>
-                    <p className="text-muted-foreground">privacy@connectflow.co.in</p>
+                    <p className="text-muted-foreground">info@therobustrix.com</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-primary" />
                   <div>
                     <p className="font-medium text-foreground">Phone</p>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground">+91 9090020245</p>
                   </div>
                 </div>
               </div>
               <div className="mt-6 p-4 bg-background rounded-lg">
                 <p className="text-sm text-muted-foreground">
-                  <strong>Data Protection Officer:</strong> Sarah Johnson<br />
-                  <strong>Address:</strong> 123 Innovation Drive, Tech City, TC 12345, United States
+                  <strong>Address:</strong> 212, City Centre Mall, Dwarka Sector-12, New Delhi
                 </p>
               </div>
             </motion.div>

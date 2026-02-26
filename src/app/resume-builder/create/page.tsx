@@ -391,8 +391,8 @@ export default function CreateResumePage() {
   ];
 
   return (
-    <main className="pt-28 pb-20">
-      <div className="container mx-auto px-4 md:px-6">
+    <main className="pt-20 sm:pt-24 lg:pt-28 pb-24 lg:pb-20">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
         {/* Header with action buttons */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl md:text-3xl font-bold">Resume Builder</h1>
@@ -797,7 +797,7 @@ export default function CreateResumePage() {
                   className="space-y-4"
                 >
                   <h3 className="text-lg font-medium">Choose a Template</h3>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {templates.map((template) => (
                       <div 
                         key={template.id}

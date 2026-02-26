@@ -8,7 +8,7 @@ import { SuggestedJobs } from "@/components/feed/SuggestedJobs";
 import { SuggestedPeople } from "@/components/feed/SuggestedPeople";
 import { UserSidebar } from "@/components/layout/UserSidebar";
 import { Button } from "@/components/ui/button";
-import { Loader2, Menu, X } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
 interface Comment {
@@ -67,8 +67,6 @@ export default function PostsPage() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const [showMobileSidebar, setShowMobileSidebar] = useState(false);
-  const [showMobileRightSidebar, setShowMobileRightSidebar] = useState(false);
 
   useEffect(() => {
     // Get current user from session/auth
@@ -294,109 +292,18 @@ export default function PostsPage() {
   }
 
   return (
-    <div className="bg-background min-h-screen">
-      {/* Mobile Menu Buttons */}
-      <div className="lg:hidden fixed top-20 left-4 z-50">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setShowMobileSidebar(!showMobileSidebar)}
-          className="bg-background/80 backdrop-blur-sm"
-          title="Profile"
-        >
-          {showMobileSidebar ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-        </Button>
-      </div>
-      
-      <div className="lg:hidden fixed top-20 right-4 z-50">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setShowMobileRightSidebar(!showMobileRightSidebar)}
-          className="bg-background/80 backdrop-blur-sm"
-          title="Jobs & People"
-        >
-          {showMobileRightSidebar ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
-        </Button>
-      </div>
-
-      {/* Mobile Left Sidebar Overlay */}
-      {showMobileSidebar && (
-        <div className="lg:hidden fixed inset-0 z-40">
-          <div 
-            className="absolute inset-0 bg-black/50"
-            onClick={() => setShowMobileSidebar(false)}
-          />
-          <div className="absolute left-0 top-0 h-full w-80 bg-background p-4 overflow-y-auto scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent hover:scrollbar-thumb-muted-foreground">
-            <div className="pt-8">
-              <UserSidebar 
-                onClose={() => setShowMobileSidebar(false)} 
-                userProfile={currentUser}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Mobile Right Sidebar Overlay */}
-      {showMobileRightSidebar && (
-        <div className="lg:hidden fixed inset-0 z-40">
-          <div 
-            className="absolute inset-0 bg-black/50"
-            onClick={() => setShowMobileRightSidebar(false)}
-          />
-          <div className="absolute right-0 top-0 h-full w-80 bg-background">
-            <div className="h-full flex flex-col">
-              {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-border">
-                <h2 className="text-lg font-semibold text-foreground">Discover</h2>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setShowMobileRightSidebar(false)}
-                  className="h-8 w-8 p-0"
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-              
-              {/* Scrollable Content */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent hover:scrollbar-thumb-muted-foreground">
-                {/* Suggested Jobs */}
-                <SuggestedJobs currentUserId={currentUser?.id || ''} />
-
-                {/* Suggested People */}
-                <SuggestedPeople currentUserId={currentUser?.id || ''} />
-
-                {/* Trending Topics */}
-                <div className="bg-card rounded-lg border border-border p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-foreground mb-4">Trending Topics</h3>
-                  <div className="space-y-2">
-                    {['#RemoteWork', '#TechJobs', '#CareerGrowth', '#JobSearch', '#Networking'].map((topic) => (
-                      <div key={topic} className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">{topic}</span>
-                        <span className="text-xs text-muted-foreground">Trending</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      <div className="max-w-7xl mx-auto px-4 pt-24 pb-8">
-        <div className="flex gap-6 lg:gap-8">
+    <div className="bg-background min-h-screen pb-24 lg:pb-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 pt-8 sm:pt-10 lg:pt-20 lg:pt-24 pb-8">
+        <div className="flex gap-4 lg:gap-8">
           {/* Left Sidebar - Desktop */}
           <div className="hidden lg:block flex-shrink-0">
             <div className="sticky top-24">
               <UserSidebar userProfile={currentUser} />
             </div>
           </div>
-          
+
           {/* Main Content */}
-          <div className="flex-1 max-w-2xl lg:max-w-none space-y-6">
+          <div className="flex-1 min-w-0 max-w-2xl lg:max-w-none space-y-4 sm:space-y-6">
             {/* Create Post */}
             <CreatePost
               currentUser={currentUser}
@@ -404,7 +311,7 @@ export default function PostsPage() {
             />
 
             {/* Posts Feed */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {loading && posts.length === 0 ? (
                 <div className="flex items-center justify-center py-12">
                   <div className="flex items-center space-x-2">
@@ -434,11 +341,12 @@ export default function PostsPage() {
 
               {/* Load More Button */}
               {hasMore && (
-                <div className="flex justify-center pt-6">
+                <div className="flex justify-center pt-4 sm:pt-6">
                   <Button
                     onClick={loadMorePosts}
                     disabled={loading}
                     variant="outline"
+                    className="min-h-[44px] px-6 touch-manipulation"
                   >
                     {loading ? (
                       <>

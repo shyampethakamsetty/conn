@@ -88,7 +88,7 @@ export default function ContactPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="pt-28 pb-20 bg-gradient-to-br from-primary/5 via-background to-primary/5">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -108,7 +108,7 @@ export default function ContactPage() {
 
       {/* Contact Info Section */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((info, index) => (
               <motion.div
@@ -138,7 +138,7 @@ export default function ContactPage() {
 
       {/* Contact Form Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
@@ -273,7 +273,7 @@ export default function ContactPage() {
 
       {/* Office Location Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-6">
               Visit Our Office

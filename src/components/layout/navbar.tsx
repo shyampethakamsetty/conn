@@ -138,13 +138,15 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      // Don't close desktop dropdown when mobile menu is open (mobile menu is not inside dropdownRef)
+      if (isMobileMenuOpen) return;
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setActiveDropdown(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [isMobileMenuOpen]);
 
   // Close mobile menu when route changes
   useEffect(() => {
@@ -190,17 +192,17 @@ const Navbar = () => {
   return (
     <header 
       className={`fixed top-0 w-full z-50 backdrop-blur-md transition-all duration-300 ${
-        scrolled ? "py-2 shadow-md bg-background/95" : "py-4 bg-transparent"
+        scrolled ? "py-2 shadow-md bg-background/95" : "py-3 md:py-4 bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <nav className="flex items-center justify-between">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
+        <nav className="flex items-center justify-between gap-2">
           {/* Logo */}
-          <Link href="/" className="flex items-center relative z-[70]">
+          <Link href="/" className="flex items-center relative z-[70] shrink-0 min-h-[44px] min-w-[44px] items-center justify-center">
             <img 
               src="/connectflow.jpg" 
               alt="ConnectFlow Logo" 
-              className="w-16 h-16 rounded-lg object-cover hover:opacity-90 transition-opacity"
+              className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-lg object-cover hover:opacity-90 transition-opacity"
             />
           </Link>
 
@@ -355,10 +357,10 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Right Side */}
-          <div className="flex items-center gap-3 lg:hidden relative z-[70]">
+          <div className="flex items-center gap-1 sm:gap-3 lg:hidden relative z-[70]">
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-full hover:bg-muted transition-colors"
+              className="p-2.5 min-h-[44px] min-w-[44px] rounded-full hover:bg-muted transition-colors flex items-center justify-center touch-manipulation"
               aria-label="Toggle theme"
             >
               {mounted && (theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />)}
@@ -368,7 +370,7 @@ const Navbar = () => {
             
             <button 
               onClick={toggleMobileMenu}
-              className="p-2 rounded-full hover:bg-muted transition-colors relative z-[70]"
+              className="p-2.5 min-h-[44px] min-w-[44px] rounded-full hover:bg-muted transition-colors relative z-[70] flex items-center justify-center touch-manipulation"
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -379,18 +381,22 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <>
-            {/* Backdrop */}
+            {/* Backdrop - behind menu so menu receives taps first */}
             <div 
-              className="lg:hidden fixed inset-0 bg-white/80 dark:bg-black/80 z-[60]" 
+              className="lg:hidden fixed inset-0 z-[60] bg-white/80 dark:bg-black/80"
               onClick={closeMobileMenu}
+              aria-hidden
             />
             
-            {/* Menu Content */}
+            {/* Menu Content - higher z-index, capture pointer so backdrop never gets tap */}
             <div 
-              className="lg:hidden fixed top-[88px] left-0 right-0 bottom-0 bg-background z-[65] overflow-y-auto shadow-2xl border-t border-border"
-              style={{ minHeight: 'calc(100vh - 88px)' }}
+              className="lg:hidden fixed inset-0 z-[65] flex flex-col pt-[65px] sm:pt-[80px] bg-transparent"
+              style={{ minHeight: '100vh' }}
+              onPointerDown={(e) => e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
             >
-              <div className="px-4 py-6">
+              <div className="flex-1 overflow-y-auto bg-background shadow-2xl border-t border-border pb-24">
+                <div className="px-4 py-6">
                 <nav className="space-y-1">
                 {/* User Welcome Message */}
                 {session && (
@@ -408,7 +414,7 @@ const Navbar = () => {
                       <div>
                         <button
                           onClick={() => toggleDropdown(link.name)}
-                          className={`w-full flex items-center justify-between py-3 px-4 rounded-lg text-base font-medium transition-colors ${
+                          className={`w-full flex items-center justify-between py-3 px-4 rounded-lg text-base font-medium transition-colors min-h-[48px] touch-manipulation ${
                             isActive(link.href) && link.href !== "#"
                               ? "text-primary bg-primary/10"
                               : "text-foreground hover:bg-muted"
@@ -426,10 +432,11 @@ const Navbar = () => {
                         {activeDropdown === link.name && (
                           <div className="mt-1 ml-4 pl-4 border-l-2 border-border space-y-1">
                             {link.dropdown.map((item) => (
-                              <button
+                              <Link
                                 key={item.name}
-                                onClick={(e) => handleDropdownItemClick(e, item.href)}
-                                className={`w-full flex items-center gap-3 py-2 px-4 rounded-lg text-sm transition-colors text-left ${
+                                href={item.href}
+                                onClick={closeMobileMenu}
+                                className={`flex items-center gap-3 py-2 px-4 rounded-lg text-sm transition-colors min-h-[44px] touch-manipulation w-full ${
                                   pathname === item.href
                                     ? "text-primary font-medium bg-primary/10"
                                     : "text-foreground/80 hover:bg-muted"
@@ -437,7 +444,7 @@ const Navbar = () => {
                               >
                                 {item.icon}
                                 <span>{item.name}</span>
-                              </button>
+                              </Link>
                             ))}
                           </div>
                         )}
@@ -445,7 +452,7 @@ const Navbar = () => {
                     ) : (
                       <button
                         onClick={(e) => handleDropdownItemClick(e, link.href)}
-                        className={`w-full flex items-center gap-3 py-3 px-4 rounded-lg text-base font-medium transition-colors text-left ${
+                        className={`w-full flex items-center gap-3 py-3 px-4 rounded-lg text-base font-medium transition-colors text-left min-h-[48px] touch-manipulation ${
                           isActive(link.href)
                             ? "text-primary bg-primary/10"
                             : "text-foreground hover:bg-muted"
@@ -463,7 +470,7 @@ const Navbar = () => {
                   <div>
                     <button
                       onClick={() => toggleDropdown("recruiters")}
-                      className={`w-full flex items-center justify-between py-3 px-4 rounded-lg text-base font-medium transition-colors ${
+                      className={`w-full flex items-center justify-between py-3 px-4 rounded-lg text-base font-medium transition-colors min-h-[48px] touch-manipulation ${
                         pathname?.startsWith("/auth/recruiter") || pathname?.startsWith("/dashboard/recruiter")
                           ? "text-primary bg-primary/10"
                           : "text-foreground hover:bg-muted"
@@ -481,10 +488,11 @@ const Navbar = () => {
                     {activeDropdown === "recruiters" && (
                       <div className="mt-1 ml-4 pl-4 border-l-2 border-border space-y-1">
                         {recruiterLinks.map((item) => (
-                          <button
+                          <Link
                             key={item.name}
-                            onClick={(e) => handleDropdownItemClick(e, item.href)}
-                            className={`w-full flex items-center gap-3 py-2 px-4 rounded-lg text-sm transition-colors text-left ${
+                            href={item.href}
+                            onClick={closeMobileMenu}
+                            className={`flex items-center gap-3 py-2 px-4 rounded-lg text-sm transition-colors min-h-[44px] touch-manipulation w-full ${
                               pathname === item.href
                                 ? "text-primary font-medium bg-primary/10"
                                 : "text-foreground/80 hover:bg-muted"
@@ -492,7 +500,7 @@ const Navbar = () => {
                           >
                             {item.icon}
                             <span>{item.name}</span>
-                          </button>
+                          </Link>
                         ))}
                       </div>
                     )}
@@ -527,8 +535,9 @@ const Navbar = () => {
                   )}
                 </div>
               </nav>
+                </div>
+              </div>
             </div>
-          </div>
           </>
         )}
       </div>

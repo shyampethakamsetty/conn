@@ -163,8 +163,8 @@ export default function PublicProfilePage() {
   }
 
   return (
-    <main className="pt-24 pb-8">
-      <div className="max-w-4xl mx-auto px-4 space-y-6">
+    <main className="pt-20 sm:pt-24 pb-24 lg:pb-8">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 space-y-6">
         {/* Navigation */}
         <div className="flex items-center justify-between">
           <Link href="/posts">

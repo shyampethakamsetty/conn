@@ -289,11 +289,11 @@ export default function MockInterviewPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 pt-28 pb-20">
+    <div className="min-h-screen bg-gradient-to-br from-background to-background/95 pt-20 sm:pt-24 lg:pt-28 pb-24 lg:pb-20">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent pointer-events-none" />
       
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10">
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-primary to-primary/80 rounded-full mb-6 shadow-lg">

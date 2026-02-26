@@ -174,7 +174,7 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 md:pt-28 md:pb-20 lg:pt-32 lg:pb-24 overflow-hidden bg-background">
-        <div className="container mx-auto px-4 md:px-6 relative">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center min-h-[80vh]">
             {/* Left Section - Text and Login Options */}
             <motion.div
@@ -302,7 +302,7 @@ export default function Home() {
 
       {/* Stats Section */}
       <section ref={statsRef} className="py-16 md:py-20 lg:py-24">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => (
               <motion.div
@@ -336,7 +336,7 @@ export default function Home() {
         ref={howItWorksRef}
         className="py-16 md:py-24"
       >
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               How ConnectFlow Works
@@ -378,7 +378,7 @@ export default function Home() {
 
       {/* Featured Jobs Section */}
       <section className="py-16 md:py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-10">
             <div>
               <h2 className="text-3xl font-bold text-foreground">
@@ -417,7 +417,7 @@ export default function Home() {
         ref={companiesRef}
         className="py-16 md:py-24"
       >
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="flex flex-col md:flex-row md:items-center justify-between mb-10">
             <div>
               <h2 className="text-3xl font-bold text-foreground">
@@ -479,7 +479,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-16 md:py-20">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="bg-primary rounded-3xl overflow-hidden">
             <div className="relative p-8 md:p-12 lg:p-16">
               <div className="absolute inset-0 opacity-10">

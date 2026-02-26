@@ -275,7 +275,7 @@ export default function JobApplicationPage() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-        <div className="container mx-auto px-4 md:px-6 pt-28 pb-20">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 pt-20 sm:pt-24 lg:pt-28 pb-24 lg:pb-20">
           <div className="flex justify-center items-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
           </div>
@@ -287,7 +287,7 @@ export default function JobApplicationPage() {
   if (!job || !jobSeeker) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-        <div className="container mx-auto px-4 md:px-6 pt-28 pb-20">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 pt-20 sm:pt-24 lg:pt-28 pb-24 lg:pb-20">
           <div className="text-center py-20">
             <div className="mx-auto w-24 h-24 bg-muted rounded-full flex items-center justify-center mb-6">
               <XCircle className="h-12 w-12 text-muted-foreground" />
@@ -308,7 +308,7 @@ export default function JobApplicationPage() {
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-      <div className="container mx-auto px-4 md:px-6 pt-28 pb-20">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 pt-20 sm:pt-24 lg:pt-28 pb-24 lg:pb-20">
         {/* Back button */}
         <div className="mb-8">
           <Link href={`/jobs/${jobId}`} className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors">

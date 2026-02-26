@@ -293,16 +293,16 @@ export function PostCard({
   };
 
   return (
-    <div className={`bg-card rounded-lg border border-border p-6 shadow-sm transition-all duration-500 ${
+    <div className={`bg-card rounded-lg border border-border p-4 sm:p-6 shadow-sm transition-all duration-500 ${
       isNewPost ? 'animate-pulse border-primary/50 bg-primary/5' : ''
     }`}>
       {/* Post Header */}
-      <div className="flex items-start justify-between mb-4">
-        <div 
-          className="flex items-start space-x-3 cursor-pointer hover:bg-muted/50 rounded-lg p-2 -m-2 transition-colors"
+      <div className="flex items-start justify-between gap-2 mb-3 sm:mb-4">
+        <div
+          className="flex items-start gap-2 sm:gap-3 min-w-0 flex-1 cursor-pointer hover:bg-muted/50 rounded-lg p-2 -m-2 transition-colors"
           onClick={handleProfileClick}
         >
-          <Avatar className="h-12 w-12">
+          <Avatar className="h-10 w-10 sm:h-12 sm:w-12 shrink-0">
             <AvatarImage 
               src={post.author.profileImage || undefined} 
               alt={post.author.fullName}
@@ -313,13 +313,13 @@ export function PostCard({
             </AvatarFallback>
           </Avatar>
           
-          <div className="flex-1">
-            <div className="flex items-center space-x-2">
-              <h3 className="font-semibold text-foreground hover:text-primary transition-colors">{post.author.fullName}</h3>
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+              <h3 className="font-semibold text-foreground hover:text-primary transition-colors truncate">{post.author.fullName}</h3>
               {getPostTypeBadge()}
             </div>
             
-            <div className="flex items-center space-x-1 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-x-1 text-xs sm:text-sm text-muted-foreground">
               {post.author.headline && (
                 <>
                   <span>{post.author.headline}</span>
@@ -338,14 +338,14 @@ export function PostCard({
           </div>
         </div>
         
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center shrink-0 gap-1">
           {isCurrentUserPost && (
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setShowDeleteConfirm(true)}
               disabled={isDeleting}
-              className="text-red-500 hover:text-red-700 hover:bg-red-50"
+              className="h-9 w-9 sm:h-8 sm:w-8 p-0 text-red-500 hover:text-red-700 hover:bg-red-50 touch-manipulation"
               title="Delete post"
             >
               {isDeleting ? (
@@ -355,7 +355,7 @@ export function PostCard({
               )}
             </Button>
           )}
-          <Button variant="ghost" size="sm">
+          <Button variant="ghost" size="sm" className="h-9 w-9 sm:h-8 sm:w-8 p-0 touch-manipulation">
             <MoreHorizontal className="h-4 w-4" />
           </Button>
         </div>
@@ -367,22 +367,22 @@ export function PostCard({
         
         {/* Special Event Card */}
         {post.event && (
-          <div className="mt-4 bg-muted/30 border border-border rounded-xl p-4 shadow-sm">
-            <div className="flex items-start justify-between mb-3">
-              <div className="flex items-center space-x-2">
-                <div className="p-2 bg-primary/10 rounded-lg">
-                  <Calendar className="h-5 w-5 text-primary" />
+          <div className="mt-4 bg-muted/30 border border-border rounded-xl p-3 sm:p-4 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
+              <div className="flex items-start gap-2 sm:gap-2 min-w-0">
+                <div className="p-2 bg-primary/10 rounded-lg shrink-0">
+                  <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
                 </div>
-                <div>
-                  <h3 className="font-bold text-lg text-foreground">{post.event.title}</h3>
-                  <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                    <div className="flex items-center space-x-1">
-                      <Clock className="h-4 w-4" />
+                <div className="min-w-0">
+                  <h3 className="font-bold text-base sm:text-lg text-foreground">{post.event.title}</h3>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm text-muted-foreground mt-0.5">
+                    <div className="flex items-center gap-1">
+                      <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
                       <span>{new Date(post.event.date).toLocaleDateString()} at {post.event.time}</span>
                     </div>
                     {post.location && (
-                      <div className="flex items-center space-x-1">
-                        <MapPin className="h-4 w-4" />
+                      <div className="flex items-center gap-1">
+                        <MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
                         <span>{post.location}</span>
                       </div>
                     )}
@@ -390,7 +390,6 @@ export function PostCard({
                 </div>
               </div>
               
-              {/* Event Status Badge */}
               <Badge 
                 variant={getEventStatus() === 'live' ? 'default' : getEventStatus() === 'ended' ? 'secondary' : 'outline'}
                 className={
@@ -418,17 +417,17 @@ export function PostCard({
             
             {/* RSVP Section */}
             <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <Users className="h-4 w-4 text-muted-foreground" />
+              <div className="flex items-center gap-2">
+                <Users className="h-4 w-4 text-muted-foreground shrink-0" />
                 <span className="text-sm font-medium text-foreground">RSVP</span>
               </div>
               
-              <div className="flex space-x-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <Button
                   size="sm"
                   variant={rsvpStatus === 'going' ? 'default' : 'outline'}
                   onClick={() => handleRsvp('going')}
-                  className={`flex-1 ${
+                  className={`flex-1 min-h-[44px] touch-manipulation ${
                     rsvpStatus === 'going' 
                       ? 'bg-green-600 hover:bg-green-700 text-white' 
                       : 'hover:bg-green-500/10 hover:text-green-600 hover:border-green-200'
@@ -442,7 +441,7 @@ export function PostCard({
                   size="sm"
                   variant={rsvpStatus === 'maybe' ? 'default' : 'outline'}
                   onClick={() => handleRsvp('maybe')}
-                  className={`flex-1 ${
+                  className={`flex-1 min-h-[44px] touch-manipulation ${
                     rsvpStatus === 'maybe' 
                       ? 'bg-yellow-600 hover:bg-yellow-700 text-white' 
                       : 'hover:bg-yellow-500/10 hover:text-yellow-600 hover:border-yellow-200'
@@ -455,7 +454,7 @@ export function PostCard({
                   size="sm"
                   variant={rsvpStatus === 'not-going' ? 'default' : 'outline'}
                   onClick={() => handleRsvp('not-going')}
-                  className={`flex-1 ${
+                  className={`flex-1 min-h-[44px] touch-manipulation ${
                     rsvpStatus === 'not-going' 
                       ? 'bg-red-600 hover:bg-red-700 text-white' 
                       : 'hover:bg-red-500/10 hover:text-red-600 hover:border-red-200'
@@ -503,7 +502,7 @@ export function PostCard({
       </div>
 
       {/* Post Stats */}
-      <div className="flex items-center justify-between text-sm text-muted-foreground mb-4">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
         <div className="flex items-center space-x-4">
           {likesCount > 0 && (
             <button
@@ -565,16 +564,16 @@ export function PostCard({
       )}
 
       {/* Post Actions */}
-      <div className="flex items-center justify-between border-t border-border pt-4">
+      <div className="flex items-center justify-between gap-1 border-t border-border pt-3 sm:pt-4">
         <Button
           variant="ghost"
           size="sm"
           onClick={handleLike}
-          className={`flex items-center space-x-2 ${
+          className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 min-h-[44px] sm:min-h-0 touch-manipulation ${
             isLiked ? 'text-blue-600' : 'text-gray-500 hover:text-blue-600'
           }`}
         >
-          <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
+          <Heart className={`h-4 w-4 shrink-0 ${isLiked ? 'fill-current' : ''}`} />
           <span>Like</span>
         </Button>
         
@@ -582,9 +581,9 @@ export function PostCard({
           variant="ghost"
           size="sm"
           onClick={() => setShowComments(!showComments)}
-          className="flex items-center space-x-2 text-gray-500 hover:text-blue-600"
+          className="flex-1 sm:flex-initial flex items-center justify-center gap-2 min-h-[44px] sm:min-h-0 text-gray-500 hover:text-blue-600 touch-manipulation"
         >
-          <MessageCircle className="h-4 w-4" />
+          <MessageCircle className="h-4 w-4 shrink-0" />
           <span>Comment</span>
         </Button>
         
@@ -592,9 +591,9 @@ export function PostCard({
           variant="ghost"
           size="sm"
           onClick={() => setShowShareDialog(true)}
-          className="flex items-center space-x-2 text-gray-500 hover:text-blue-600"
+          className="flex-1 sm:flex-initial flex items-center justify-center gap-2 min-h-[44px] sm:min-h-0 text-gray-500 hover:text-blue-600 touch-manipulation"
         >
-          <Share2 className="h-4 w-4" />
+          <Share2 className="h-4 w-4 shrink-0" />
           <span>Share</span>
         </Button>
       </div>

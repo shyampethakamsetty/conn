@@ -206,7 +206,7 @@ export default function RecruiterRegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4 pt-24 pb-16">
+    <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-3 sm:p-4 pt-24 pb-16">
       <div className="grid md:grid-cols-2 gap-0 max-w-4xl w-full bg-card shadow-2xl rounded-lg overflow-hidden border border-border">
         {/* Left Side: Registration Form */}
         <div className="p-8 md:p-12 flex flex-col justify-center">

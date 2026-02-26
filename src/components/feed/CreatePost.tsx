@@ -172,12 +172,12 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
   };
 
   return (
-    <div className="bg-card rounded-xl border border-border p-6 shadow-lg">
+    <div className="bg-card rounded-xl border border-border p-4 sm:p-6 shadow-lg">
       <form onSubmit={handleSubmit}>
         {/* User Info */}
-        <div className="flex items-start space-x-4 mb-6">
-          <div className="relative">
-            <Avatar className="h-14 w-14 ring-4 ring-background shadow-lg">
+        <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div className="relative shrink-0">
+            <Avatar className="h-11 w-11 sm:h-14 sm:w-14 ring-2 sm:ring-4 ring-background shadow-lg">
               <AvatarImage 
                 src={currentUser.profileImage || undefined} 
                 alt={currentUser.fullName}
@@ -189,13 +189,13 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
             <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-background"></div>
           </div>
           
-          <div className="flex-1">
-            <div className="flex items-center space-x-3 mb-2">
-              <span className="font-bold text-foreground text-lg">{currentUser.fullName}</span>
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-wrap items-center gap-2 mb-1 sm:mb-2">
+              <span className="font-bold text-foreground text-base sm:text-lg">{currentUser.fullName}</span>
               {getPostTypeBadge()}
             </div>
             
-            <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-x-2 text-xs sm:text-sm text-muted-foreground">
               {currentUser.headline && (
                 <>
                   <span className="font-medium">{currentUser.headline}</span>
@@ -214,26 +214,26 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
         </div>
 
         {/* Post Content */}
-        <div className="mb-6">
+        <div className="mb-4 sm:mb-6">
           <div className="relative">
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
               placeholder="What's on your mind? Share your thoughts..."
-              className="w-full px-4 py-4 text-lg border border-border rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent placeholder-muted-foreground bg-background shadow-sm"
-            rows={4}
+              className="w-full px-3 sm:px-4 py-3 sm:py-4 text-base sm:text-lg border border-border rounded-xl resize-none focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent placeholder-muted-foreground bg-background shadow-sm"
+            rows={3}
           />
-            <div className="absolute bottom-3 right-3 text-xs text-muted-foreground">
+            <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 text-xs text-muted-foreground">
               {content.length}/500
             </div>
           </div>
           
           {imageUrl && (
-            <div className="mt-4 rounded-xl overflow-hidden shadow-lg border border-border">
+            <div className="mt-3 sm:mt-4 rounded-xl overflow-hidden shadow-lg border border-border">
               <img
                 src={imageUrl}
                 alt="Upload preview"
-                className="w-full h-64 object-cover"
+                className="w-full h-48 sm:h-64 object-cover"
               />
             </div>
           )}
@@ -260,11 +260,11 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
               </div>
             )}
             {selectedEvent && (
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-2">
-                  <Calendar className="h-4 w-4 text-blue-600" />
-                  <span className="text-sm font-medium">
-                    Event: {selectedEvent.title} - {selectedEvent.date} at {selectedEvent.time}
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex items-center gap-2 min-w-0">
+                  <Calendar className="h-4 w-4 text-blue-600 shrink-0" />
+                  <span className="text-xs sm:text-sm font-medium truncate">
+                    Event: {selectedEvent.title} – {selectedEvent.date} at {selectedEvent.time}
                   </span>
                 </div>
                 <Button
@@ -296,7 +296,7 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
                 <X className="h-4 w-4" />
               </Button>
             </div>
-            <div className="grid grid-cols-8 gap-2">
+            <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-2">
               {['😀', '😂', '😍', '🥰', '😎', '🤔', '😮', '😢', '😡', '👍', '👎', '❤️', '🎉', '🔥', '💯', '🚀', '💡', '🎯', '⭐', '🏆', '🎨', '📚', '💼', '🌍', '🎵', '🍕', '☕', '🏃', '🎮', '📱', '💻', '🎪', '🎭'].map((emoji) => (
                 <button
                   key={emoji}
@@ -381,15 +381,15 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
                 className="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background"
                 id="event-title"
               />
-              <div className="flex space-x-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <input
                   type="date"
-                  className="flex-1 px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                  className="flex-1 min-w-0 px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background"
                   id="event-date"
                 />
                 <input
                   type="time"
-                  className="flex-1 px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background"
+                  className="flex-1 min-w-0 px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background"
                   id="event-time"
                 />
               </div>
@@ -419,8 +419,8 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
         )}
 
         {/* Post Type Selection */}
-        <div className="mb-6">
-          <div className="flex space-x-2">
+        <div className="mb-4 sm:mb-6">
+          <div className="flex flex-wrap gap-2">
             {[
               { value: 'general', label: 'General Post', color: 'bg-secondary text-secondary-foreground hover:bg-secondary/80' },
               { value: 'job_update', label: 'Job Update', color: 'bg-primary text-primary-foreground hover:bg-primary/90' },
@@ -431,7 +431,7 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
                 key={type.value}
                 type="button"
                 onClick={() => setPostType(type.value)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 touch-manipulation ${
                   postType === type.value 
                     ? type.color + ' ring-2 ring-offset-2 ring-ring' 
                     : 'bg-muted text-muted-foreground hover:bg-muted/80'
@@ -444,8 +444,8 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
         </div>
 
         {/* Actions */}
-        <div className="flex items-center justify-between pt-4 border-t border-border">
-          <div className="flex items-center space-x-2">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pt-3 sm:pt-4 border-t border-border">
+          <div className="flex flex-wrap items-center gap-1 sm:gap-2">
             <input
               ref={fileInputRef}
               type="file"
@@ -460,10 +460,10 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
               size="sm"
               onClick={() => fileInputRef.current?.click()}
               disabled={isUploading}
-              className="flex items-center space-x-2 text-muted-foreground hover:text-primary hover:bg-accent rounded-xl px-4 py-2 transition-all duration-200"
+              className="flex items-center gap-2 text-muted-foreground hover:text-primary hover:bg-accent rounded-xl px-3 py-2 min-h-[44px] sm:min-h-0 touch-manipulation"
             >
-              <Image className="h-5 w-5" />
-              <span className="font-medium">Image</span>
+              <Image className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="font-medium text-sm sm:text-base">Image</span>
             </Button>
             
             <Button
@@ -471,14 +471,14 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
               variant="ghost"
               size="sm"
               onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-              className={`flex items-center space-x-2 rounded-xl px-4 py-2 transition-all duration-200 ${
+              className={`flex items-center gap-2 rounded-xl px-3 py-2 min-h-[44px] sm:min-h-0 touch-manipulation ${
                 showEmojiPicker 
                   ? 'text-yellow-600 bg-yellow-50 dark:bg-yellow-900/20' 
                   : 'text-muted-foreground hover:text-yellow-600 hover:bg-yellow-50 dark:hover:bg-yellow-900/20'
               }`}
             >
-              <Smile className="h-5 w-5" />
-              <span className="font-medium">Emoji</span>
+              <Smile className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="font-medium text-sm sm:text-base">Emoji</span>
             </Button>
             
             <Button
@@ -486,14 +486,14 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
               variant="ghost"
               size="sm"
               onClick={() => setShowLocationPicker(!showLocationPicker)}
-              className={`flex items-center space-x-2 rounded-xl px-4 py-2 transition-all duration-200 ${
+              className={`flex items-center gap-2 rounded-xl px-3 py-2 min-h-[44px] sm:min-h-0 touch-manipulation ${
                 showLocationPicker 
                   ? 'text-green-600 bg-green-50 dark:bg-green-900/20' 
                   : 'text-muted-foreground hover:text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20'
               }`}
             >
-              <MapPin className="h-5 w-5" />
-              <span className="font-medium">Location</span>
+              <MapPin className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="font-medium text-sm sm:text-base">Location</span>
             </Button>
             
             <Button
@@ -501,14 +501,14 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
               variant="ghost"
               size="sm"
               onClick={() => setShowEventPicker(!showEventPicker)}
-              className={`flex items-center space-x-2 rounded-xl px-4 py-2 transition-all duration-200 ${
+              className={`flex items-center gap-2 rounded-xl px-3 py-2 min-h-[44px] sm:min-h-0 touch-manipulation ${
                 showEventPicker 
                   ? 'text-purple-600 bg-purple-50 dark:bg-purple-900/20' 
                   : 'text-muted-foreground hover:text-purple-600 hover:bg-purple-50 dark:hover:bg-purple-900/20'
               }`}
             >
-              <Calendar className="h-5 w-5" />
-              <span className="font-medium">Event</span>
+              <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="font-medium text-sm sm:text-base">Event</span>
             </Button>
             
             {(content.trim() || imageUrl) && (
@@ -517,10 +517,10 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
                 variant="ghost"
                 size="sm"
                 onClick={() => setShowAICaption(true)}
-                className="flex items-center space-x-2 text-muted-foreground hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl px-4 py-2 transition-all duration-200"
+                className="flex items-center gap-2 text-muted-foreground hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-xl px-3 py-2 min-h-[44px] sm:min-h-0 touch-manipulation"
               >
-                <Sparkles className="h-5 w-5" />
-                <span className="font-medium">AI Caption</span>
+                <Sparkles className="h-4 w-4 sm:h-5 sm:w-5" />
+                <span className="font-medium text-sm sm:text-base">AI Caption</span>
               </Button>
             )}
           </div>
@@ -528,7 +528,7 @@ export function CreatePost({ currentUser, onPostCreated }: CreatePostProps) {
           <Button
             type="submit"
             disabled={isPosting || isUploading || (!content.trim() && !imageUrl)}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+            className="w-full sm:w-auto min-h-[44px] touch-manipulation bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-6 sm:px-8 py-2.5 sm:py-2 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200"
           >
             {isPosting ? (
               <div className="flex items-center space-x-2">

@@ -118,8 +118,8 @@ export default function JobSeekerApplicationsPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen pt-28 pb-20">
-        <div className="container mx-auto px-4 md:px-6">
+      <div className="min-h-screen pt-20 sm:pt-24 lg:pt-28 pb-24 lg:pb-20">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="flex justify-center items-center py-20">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
           </div>
@@ -129,8 +129,8 @@ export default function JobSeekerApplicationsPage() {
   }
 
   return (
-    <main className="pt-28 pb-20">
-      <div className="container mx-auto px-4 md:px-6">
+    <main className="pt-20 sm:pt-24 lg:pt-28 pb-24 lg:pb-20">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>

@@ -155,8 +155,8 @@ export default function JobSeekerProfileEditPage() {
   }
 
   return (
-    <main className="pt-28 pb-20">
-      <div className="container mx-auto px-4 md:px-6">
+    <main className="pt-20 sm:pt-24 lg:pt-28 pb-24 lg:pb-20">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}

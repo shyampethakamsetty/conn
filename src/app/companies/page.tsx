@@ -63,11 +63,11 @@ export default function CompaniesPage() {
   const industries = ["IT", "Finance", "Healthcare", "Education", "Manufacturing", "Retail", "Other"];
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground pb-24 lg:pb-0">
       {/* Fixed height spacer to push content below navbar */}
       <div className="h-20"></div>
       
-      <div className="p-4 md:p-8 mt-8">
+      <div className="px-3 sm:px-4 md:px-6 py-6 md:py-8 mt-6 md:mt-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div 

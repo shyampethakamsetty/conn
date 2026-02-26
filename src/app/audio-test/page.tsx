@@ -851,7 +851,7 @@ if __name__ == "__main__":
                   </div>
 
                   {/* Test Buttons */}
-                  <div className="grid grid-cols-2 gap-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     <Button
                       onClick={checkAudioLevel}
                       variant="outline"

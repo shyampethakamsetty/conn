@@ -136,7 +136,7 @@ export default function InterviewHistory({ onBack }: InterviewHistoryProps) {
   if (showDetails && selectedSession) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background to-background/95 pt-28 pb-20">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 max-w-4xl">
           {/* Header */}
           <div className="bg-card/80 backdrop-blur-sm border-0 shadow-lg p-6 mb-6">
             <div className="flex items-center justify-between mb-4">
@@ -271,7 +271,7 @@ export default function InterviewHistory({ onBack }: InterviewHistoryProps) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-background/95 pt-28 pb-20">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6">
         {/* Header */}
         <div className="bg-card/80 backdrop-blur-sm border-0 shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">

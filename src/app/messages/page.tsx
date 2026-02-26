@@ -190,7 +190,7 @@ function MessagesContent() {
   }
 
   return (
-    <div className="fixed inset-0 bg-background pt-20">
+    <div className="fixed inset-0 bg-background pt-20 pb-24 lg:pb-0">
       <div className="h-full w-full max-w-full">
         <div className="bg-card border-t border-border overflow-hidden h-full w-full">
           <div className="flex h-full w-full">

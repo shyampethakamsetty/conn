@@ -103,7 +103,7 @@ export default function TermsPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="pt-28 pb-20 bg-gradient-to-br from-primary/5 via-background to-primary/5">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -130,7 +130,7 @@ export default function TermsPage() {
 
       {/* Overview Section */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -156,7 +156,7 @@ export default function TermsPage() {
 
       {/* Main Terms Sections */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             {sections.map((section, index) => (
               <motion.div
@@ -185,7 +185,7 @@ export default function TermsPage() {
 
       {/* Prohibited Activities */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -218,7 +218,7 @@ export default function TermsPage() {
 
       {/* Account Termination */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -254,7 +254,7 @@ export default function TermsPage() {
 
       {/* Disclaimers and Limitations */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -302,7 +302,7 @@ export default function TermsPage() {
 
       {/* Governing Law */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -343,7 +343,7 @@ export default function TermsPage() {
 
       {/* Changes to Terms */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -387,7 +387,7 @@ export default function TermsPage() {
 
       {/* Contact Information */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

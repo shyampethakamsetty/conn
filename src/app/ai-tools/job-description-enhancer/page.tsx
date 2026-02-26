@@ -108,7 +108,7 @@ export default function JobDescriptionEnhancerPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-      <div className="container mx-auto px-4 py-8 pt-24">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 py-6 md:py-8 pt-20 sm:pt-24">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

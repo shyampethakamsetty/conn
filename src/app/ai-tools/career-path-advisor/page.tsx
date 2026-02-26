@@ -145,7 +145,7 @@ export default function CareerPathAdvisorPage() {
 
   return (
     <div className="min-h-screen bg-[hsl(var(--background))]">
-      <div className="container mx-auto px-4 py-8 pt-24">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 py-6 md:py-8 pt-20 sm:pt-24">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -403,7 +403,7 @@ export default function CareerPathAdvisorPage() {
                         {path.description}
                       </p>
                       
-                      <div className="grid grid-cols-2 gap-4 mb-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                         <div className="text-center">
                           <div className="text-sm text-[hsl(var(--muted-foreground))]">Time to Achieve</div>
                           <div className="font-semibold text-[hsl(var(--card-foreground))]">{path.timeToAchieve}</div>
@@ -631,7 +631,7 @@ export default function CareerPathAdvisorPage() {
                           {roadmap.description}
                         </p>
                         
-                        <div className="grid grid-cols-2 gap-4 mb-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                           <div className="text-center">
                             <div className="text-sm text-[hsl(var(--muted-foreground))]">Duration</div>
                             <div className="font-semibold text-[hsl(var(--card-foreground))]">{roadmap.duration}</div>

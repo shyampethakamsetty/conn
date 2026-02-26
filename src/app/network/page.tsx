@@ -190,7 +190,7 @@ export default function NetworkPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto px-4 pt-24 pb-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 pt-20 sm:pt-24 pb-24 lg:pb-8">
         <motion.div 
           className="mb-8"
           initial={{ opacity: 0, y: -20 }}

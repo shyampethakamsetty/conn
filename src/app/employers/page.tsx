@@ -184,7 +184,7 @@ export default function EmployersPage() {
     <main className="min-h-screen">
       {/* Hero Section */}
       <section className="pt-28 pb-20 bg-gradient-to-br from-primary/5 via-background to-primary/5">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -218,8 +218,8 @@ export default function EmployersPage() {
 
       {/* Stats Section */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { value: "10K+", label: "Active Candidates" },
               { value: "500+", label: "Companies Hiring" },
@@ -247,7 +247,7 @@ export default function EmployersPage() {
 
       {/* Features Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Powerful Features for Employers
@@ -283,7 +283,7 @@ export default function EmployersPage() {
 
       {/* How It Works Section */}
       <section id="how-it-works" className="py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               How It Works
@@ -319,7 +319,7 @@ export default function EmployersPage() {
 
       {/* Benefits Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Why Choose RozgarHub?
@@ -355,7 +355,7 @@ export default function EmployersPage() {
 
       {/* Pricing Section */}
       <section className="py-20 bg-background">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               Simple, Transparent Pricing
@@ -422,7 +422,7 @@ export default function EmployersPage() {
 
       {/* Testimonials Section */}
       <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
               What Our Clients Say
@@ -465,7 +465,7 @@ export default function EmployersPage() {
 
       {/* CTA Section */}
       <section className="py-20 bg-primary text-white">
-        <div className="container mx-auto px-4 md:px-6 text-center">
+        <div className="container mx-auto px-3 sm:px-4 md:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

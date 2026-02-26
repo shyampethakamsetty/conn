@@ -6,12 +6,18 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 240, 240, 240;
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 [data-theme="dark"] {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 10, 10, 10;
   --background-end-rgb: 30, 30, 30;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -23,6 +29,7 @@ body {
   )
   rgb(var(--background-start-rgb));
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 @layer base {
@@ -125,5 +132,16 @@ body {
 
   .hover\:scrollbar-thumb-muted-foreground:hover::-webkit-scrollbar-thumb {
     background: hsl(var(--muted-foreground));
+  }
+
+  /* Mobile-first page container - use on main content wrappers for consistent padding */
+  .page-container {
+    @apply w-full mx-auto px-3 sm:px-4 md:px-6 max-w-[1400px];
+  }
+
+  /* Touch-friendly minimum tap target */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
   }
 }

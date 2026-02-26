@@ -96,11 +96,11 @@ export default function CompanyDetailsPage() {
   }
   
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-slate-900 text-white pb-24 lg:pb-0">
       {/* Fixed height spacer to push content below navbar */}
       <div className="h-20"></div>
       
-      <div className="p-4 md:p-8">
+      <div className="px-3 sm:px-4 md:px-6 py-6 md:py-8">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
             <Link 
@@ -117,7 +117,7 @@ export default function CompanyDetailsPage() {
             animate={{ opacity: 1, y: 0 }}
             className="bg-slate-800 rounded-lg p-8 mb-8"
           >
-            <div className="flex items-start gap-6">
+            <div className="flex flex-col sm:flex-row items-start gap-6">
               <div className="w-24 h-24 bg-slate-700 rounded-full flex items-center justify-center overflow-hidden flex-shrink-0">
                 {company.logo ? (
                   <img src={company.logo} alt={`${company.name} logo`} className="w-full h-full object-cover" />

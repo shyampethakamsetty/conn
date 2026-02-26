@@ -330,8 +330,8 @@ export default function JobsPage() {
   const expiredJobs = filteredJobs.filter(job => isJobExpired(job));
 
   return (
-    <div className="min-h-screen pt-20 pb-16">
-      <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
+    <div className="min-h-screen pt-20 sm:pt-24 pb-24 lg:pb-16">
+      <div className="container mx-auto px-3 sm:px-4 md:px-6 py-8 md:py-12">
         {/* Hero */}
         <div className="flex flex-col mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
