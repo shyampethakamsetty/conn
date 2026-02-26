@@ -7,9 +7,9 @@ module.exports = {
       cwd: '/home/ubuntu/htdocs/connectflow',
       
       // ---- START USING PNPM (IMPORTANT) ----
-      script: '/usr/local/bin/pnpm',
+      script: '/home/ubuntu/.local/share/pnpm/pnpm',
       args: 'start',
-      interpreter: 'node',
+      interpreter: 'sh',
       
       // ---- ABSOLUTE SAFETY ----
       instances: 1,          // NEVER > 1
