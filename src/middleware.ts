@@ -1,8 +1,22 @@
 import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
 
+// Block crypto-miner / scanner probes (security + Hostinger-friendly)
+function isMinerOrScannerProbe(req: { nextUrl: { pathname: string }; headers: { get: (n: string) => string | null } }): boolean {
+  const path = req.nextUrl.pathname.toLowerCase();
+  const ua = (req.headers.get("user-agent") || "").toLowerCase();
+  const minerPaths = ["/stratum", "/.well-known/stratum", "/miner", "/mine", "/xmr", "/monero", "/coinhive", "/cryptonight", "/minero", "/jsecoin", "/crypto-loot", "/webmine", "/2miners", "/nanopool", "/xmrig", "/worker.min.js", "/miner.js", "/lib/cryptonight"];
+  const minerUas = ["xmrig", "ccminer", "cgminer", "bfgminer", "cpuminer", "minerd", "nicehash", "multipool", "stratum"];
+  if (minerPaths.some((p) => path.includes(p))) return true;
+  if (minerUas.some((m) => ua.includes(m))) return true;
+  return false;
+}
+
 export default withAuth(
   function middleware(req) {
+    if (isMinerOrScannerProbe(req)) {
+      return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+    }
     const { pathname } = req.nextUrl;
     const { token } = req.nextauth;
 
