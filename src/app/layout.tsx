@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   title: "Connectflow - Find Your Dream Job",
   description: "A modern job portal to connect job seekers with employers",
   keywords: ["jobs", "career", "employment", "recruitment", "hiring", "job portal"],
+  icons: {
+    icon: "/connectflow.jpg",
+    apple: "/connectflow.jpg",
+  },
   viewport: {
     width: "device-width",
     initialScale: 1,
